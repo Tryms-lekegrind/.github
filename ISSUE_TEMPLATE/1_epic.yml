@@ -1,6 +1,7 @@
 name: "Epic"
 description: "Top-level business-owned initiative. Trigger agent planning from here."
 title: "[EPIC] "
+type: "Epic"
 body:
   - type: markdown
     attributes:

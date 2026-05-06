@@ -1,6 +1,7 @@
 name: "Feature"
 description: "Business-owned capability under an Epic."
 title: "[FEATURE] "
+type: "Feature"
 body:
   - type: markdown
     attributes:
