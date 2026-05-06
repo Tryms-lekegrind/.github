@@ -9,9 +9,6 @@ body:
         ## Feature
 
         A Feature belongs under an Epic.
-        After creating this issue, add it as a sub-issue under the relevant Epic.
-
-        The agent will later break Features into Tasks.
 
   - type: input
     id: parent_epic
@@ -25,26 +22,14 @@ body:
     id: feature_goal
     attributes:
       label: "Feature goal"
-      placeholder: |
-        What should this Feature achieve?
-    validations:
-      required: true
-
-  - type: textarea
-    id: user_story
-    attributes:
-      label: "User story"
-      placeholder: |
-        As a...
-        I want...
-        So that...
+      placeholder: "What should this Feature achieve?"
     validations:
       required: true
 
   - type: textarea
     id: acceptance_criteria
     attributes:
-      label: "Feature acceptance criteria"
+      label: "Acceptance criteria"
       placeholder: |
         - Criteria 1
         - Criteria 2
@@ -52,76 +37,13 @@ body:
     validations:
       required: true
 
-  - type: textarea
-    id: suggested_tasks
-    attributes:
-      label: "Suggested task breakdown"
-      description: "Optional. The agent may refine this."
-      placeholder: |
-        - Add backend service
-        - Add tests
-        - Add frontend component
-    validations:
-      required: false
-
   - type: dropdown
-    id: affected_area
+    id: risk_level
     attributes:
-      label: "Affected area"
-      options:
-        - "Backend"
-        - "Frontend"
-        - "Database"
-        - "Scraping"
-        - "Matching"
-        - "Trend analysis"
-        - "Infrastructure"
-        - "Documentation"
-        - "Multiple areas"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: implementation_risk
-    attributes:
-      label: "Implementation risk"
+      label: "Risk level"
       options:
         - "Low"
         - "Medium"
         - "High"
     validations:
-      required: true
-
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: "Dependencies"
-      placeholder: |
-        - Depends on #123
-        - Requires database model X
-    validations:
       required: false
-
-  - type: textarea
-    id: non_goals
-    attributes:
-      label: "Non-goals"
-      placeholder: |
-        - Do not redesign the full dashboard
-        - Do not change auth
-    validations:
-      required: false
-
-  - type: checkboxes
-    id: feature_readiness
-    attributes:
-      label: "Feature readiness checklist"
-      options:
-        - label: "Feature is linked to an Epic"
-          required: true
-        - label: "Acceptance criteria are testable"
-          required: true
-        - label: "Affected area is selected"
-          required: true
-        - label: "Dependencies and non-goals are documented where relevant"
-          required: true

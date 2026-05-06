@@ -1,5 +1,5 @@
 name: "Epic"
-description: "Top-level business-owned initiative. Trigger agent planning from here."
+description: "Top-level business-owned initiative."
 title: "[EPIC] "
 type: "Epic"
 body:
@@ -8,26 +8,14 @@ body:
       value: |
         ## Epic
 
-        This is the top-level business-owned item.
-
-        Intended hierarchy:
-
-        Epic
-        └── Feature
-            └── Task
-                └── PR
-
-        Create Feature issues separately and add them as sub-issues under this Epic.
-        Add `agent:ready` only when this Epic is ready for agent planning.
+        Describe the business goals, user value, and acceptance criteria for this Epic.
 
   - type: textarea
     id: business_goal
     attributes:
       label: "Business goal"
       description: "What business outcome should this Epic achieve?"
-      placeholder: |
-        Example:
-        Give users a dashboard for monitoring competitor campaigns across retailers.
+      placeholder: "Example: Give users a dashboard for monitoring campaigns."
     validations:
       required: true
 
@@ -36,77 +24,18 @@ body:
     attributes:
       label: "User value"
       description: "Who benefits, and what can they do after this Epic is delivered?"
-      placeholder: |
-        As a retail analyst, I can...
+      placeholder: "As a retail analyst, I can..."
     validations:
       required: true
 
   - type: textarea
-    id: in_scope
+    id: acceptance_criteria
     attributes:
-      label: "In scope"
-      placeholder: |
-        - Feature A
-        - Feature B
-        - Feature C
-    validations:
-      required: true
-
-  - type: textarea
-    id: out_of_scope
-    attributes:
-      label: "Out of scope"
-      placeholder: |
-        - Do not change authentication
-        - Do not add payment logic
-    validations:
-      required: true
-
-  - type: textarea
-    id: feature_breakdown
-    attributes:
-      label: "Feature breakdown"
-      description: "List linked Feature issues that belong under this Epic."
-      placeholder: |
-        - #123 Campaign detection logic
-        - #124 Campaign dashboard
-        - #125 Campaign drilldown
-    validations:
-      required: true
-
-  - type: textarea
-    id: epic_acceptance_criteria
-    attributes:
-      label: "Epic acceptance criteria"
+      label: "Acceptance criteria"
       placeholder: |
         - All linked Features are completed
         - All generated Tasks have passing CI
         - The implementation is documented
-        - No direct push to main
-    validations:
-      required: true
-
-  - type: dropdown
-    id: autonomy_level
-    attributes:
-      label: "Allowed agent autonomy"
-      options:
-        - "Plan only"
-        - "Create tasks only"
-        - "Create tasks and PRs"
-        - "Create tasks, PRs, and update hierarchy"
-    validations:
-      required: true
-
-  - type: dropdown
-    id: model_budget
-    attributes:
-      label: "Model budget"
-      options:
-        - "XS - cheap models only"
-        - "S - cheap default, standard fallback"
-        - "M - standard allowed"
-        - "L - premium allowed with approval"
     validations:
       required: true
 
@@ -119,33 +48,16 @@ body:
         - "Medium"
         - "High"
     validations:
-      required: true
+      required: false
 
-  - type: textarea
-    id: technical_constraints
+  - type: dropdown
+    id: model_budget
     attributes:
-      label: "Technical constraints"
-      placeholder: |
-        - Do not modify .env files
-        - All changes must go through PR
-        - Run relevant tests
-    validations:
-      required: true
-
-  - type: checkboxes
-    id: readiness_checklist
-    attributes:
-      label: "Epic readiness checklist"
+      label: "Model budget"
       options:
-        - label: "Business goal is clear"
-          required: true
-        - label: "Features are created and linked as sub-issues"
-          required: true
-        - label: "Acceptance criteria are clear"
-          required: true
-        - label: "Out-of-scope items are documented"
-          required: true
-        - label: "Agent autonomy level is selected"
-          required: true
-        - label: "Risk level and model budget are selected"
-          required: true
+        - "XS - cheap models only"
+        - "S - cheap default, standard fallback"
+        - "M - standard allowed"
+        - "L - premium allowed with approval"
+    validations:
+      required: false
